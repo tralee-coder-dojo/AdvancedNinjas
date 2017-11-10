@@ -1,0 +1,26 @@
+<html>
+    <!-- HTML page that includes Javascript code that implements a clickable counter -->
+    <head>
+        <title>Simple Clicker</title>
+    </head>
+
+    <body>
+        
+
+        <button type="button" onClick="incrementClick()">Click me</button>
+        <p> Score:<a id="clicks">0</a></p>
+
+        <script>
+            // Javascript code for a click-button counter
+
+            let counter = 0;
+            function incrementClick() {
+                //increment the counter
+                counter += 1;
+                //Set the property innerHTML to the value of the variable 'clicks'
+                document.getElementById("clicks").innerHTML = counter;
+            };
+        </script>
+    
+    </body>
+    </html>

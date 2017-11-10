@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <!-- Animated game - box moves down to corner.
+    A box will move to the lower right hand corner. Click in the box, and the score goes up
+  -->
+  
+<style>
+/* Embedded CSS describing the container*/
+/* # references just one HTML element in the page */
+
+#myContainer {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: yellow;
+}
+#myAnimation {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-color: red;
+}
+</style>
+<body>
+<!-- Set up the 'score' area and define a button to click to control the program -->
+<p>
+<p>Score:<a id="myscore">0</a></p>
+<button onclick="myMove()">Click Me</button> 
+</p>
+<!-- Define a 'container' div to hold the animated object -->
+<div id ="myContainer">
+<!-- Define an 'animated' div with a click function - notice that onclick can be used for something not a 'button' -->
+<div id ="myAnimation" onclick="ScoreUpdate()"></div>
+</div>
+
+<script>
+let score=0;
+function ScoreUpdate(){
+	score += 1;
+    document.getElementById("myscore").innerHTML = score;
+}
+    
+function myMove() {
+  var elem = document.getElementById("myAnimation");   
+  var pos = 0;
+  var id = setInterval(frame, 15); //function frame will be called every 15 milliseconds
+  function frame() {
+    if (pos == 350) { //in the lower right-hand corner
+      clearInterval(id); //turn off the timer
+    } else {
+      pos++; 
+      elem.style.top = pos + 'px'; 
+      elem.style.left = pos + 'px'; 
+    }
+  }
+}
+</script>
+
+</body>
+</html>
